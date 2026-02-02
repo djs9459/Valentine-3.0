@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liv 🤍</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #ff1493, #ff69b4);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #ff2f7a;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 25px;
+      margin: 15px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #nextBtn {
+      background: hotpink;
+      color: white;
+    }
+
+    #yesBtn {
+      background: #ff2f7a;
+      color: white;
+    }
+
+    #noBtn {
+      background: lightgray;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ PAGE 1 -->
+  <div class="card" id="page1">
+    <h1>Hi Liv 🤍</h1>
+    <p>You're so beautiful </p>
+    <button id="nextBtn">Next →</button>
+  </div>
+
+  <!-- ✅ PAGE 2 -->
+  <div class="card" id="page2" style="display:none;">
+    <h1>Liv??? 🤍</h1>
+    <p>Will you be my Valentine?</p>
+
+    <button id="yesBtn">Yes 🤍</button>
+    <button id="noBtn">No!</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    // Pages
+    const page1 = document.getElementById("page1");
+    const page2 = document.getElementById("page2");
+
+    // Buttons
+    const nextBtn = document.getElementById("nextBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    const message = document.getElementById("message");
+
+    // ✅ Move to page 2
+    nextBtn.onclick = function () {
+      page1.style.display = "none";
+      page2.style.display = "block";
+      moveNoButton(); // start the no button in a good spot
+    };
+
+    // ✅ YES clicked
+    yesBtn.onclick = function () {
+      message.innerHTML = "YAY LIV!! 🤍🤍 Happy Valentine’s Day 🍆💕;
+      noBtn.style.display = "none";
+    };
+
+    // ✅ No button runs away
+    function moveNoButton() {
+      const x = Math.random() * (window.innerWidth - 150);
+      const y = Math.random() * (window.innerHeight - 100);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+  </script>
+
+</body>
+</html>
